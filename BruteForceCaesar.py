@@ -9,7 +9,7 @@ import detectEnglish
 text_to_decipher = open('encriptedfile.txt','r') ##First we should open the text to decrypt
 
 global Character_Dict
-Character_Dict = string.printable.replace('\t\n\r\x0b\x0c','') ##Use The Printeable ASCII characters to encrypt and decrypt
+Character_Dict = string.printable.replace('\t\n\r\x0b\x0c','').replace("\\","") ##Use The Printeable ASCII characters to encrypt and decrypt
 
 ###################################################################################
 def decript_word(key,word):
@@ -38,18 +38,19 @@ cipher_text = open('decryptedFile.txt','w')
 
 for key in range(26):
     decrypted_line = ''
-    for word in encripted_lines[0]:
+    for word in encripted_lines[0].replace("\n",""):
         decrypted_line+=decript_word(key,word)               
 
     if detectEnglish.isEnglish(decrypted_line):
         decrypted_line+=' \n'
-        cipher_text.write(decrypted_line.replace("|",""))  
+        cipher_text.write(decrypted_line.replace(decrypted_line[-3],""))  
         for line in encripted_lines[1:len(encripted_lines)-1]:
             decrypted_line = ''
             for word in line[0:len(line)-1]:
                 decrypted_line+=decript_word(key,word)
-            decrypted_line+=' \n'                
-            cipher_text.write(decrypted_line.replace("|",""))
+            decrypted_line+=' \n'           
+            cipher_text.write(decrypted_line.replace(decrypted_line[-3],""))
+            
     else:
         pass
 cipher_text.close()

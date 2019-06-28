@@ -1,5 +1,4 @@
 ###This program detects a string if its make sense in english or not.
-# http://inventwithpython.com/hacking (BSD Licensed)
 
 
 UPPERLETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
