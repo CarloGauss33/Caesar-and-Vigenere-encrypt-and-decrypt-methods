@@ -50,7 +50,7 @@ for key in range(26):
                 decrypted_line+=decript_word(key,word)
             decrypted_line+=' \n'           
             cipher_text.write(decrypted_line.replace(decrypted_line[-3],""))
-            
+
     else:
         pass
 cipher_text.close()

@@ -2,8 +2,8 @@
 ### Licenced by MIT LICENSE 2019
 import string
 ################ this libraries will be used for data visualization ##############
-global lowerletters
-lowerletters = 'abcdefghijklmnopqrstuvwxyz'
+global Upperletters
+Upperletters = 'abcdefghijklmnopqrstuvwxyz'.upper()
 
 
 #################creating a form to delete non natural words###############################
@@ -24,7 +24,7 @@ def non_natural_remover(line):
     return newline
 #########################Creating the frequency analizer#####################################
 def frecuency_analisis(text):
-    words = [k for k in lowerletters]
+    words = [k for k in Upperletters]
     globalcount = 0
     counters = [0 for i in range(len(words))]
     for line in text:
@@ -32,9 +32,9 @@ def frecuency_analisis(text):
         trated_line = non_natural_remover(line)
         frecuency_analisis
         Distribution_Matrix = []
-        line_to_analize = line.lower()
-        for k in range(len(lowerletters)):
-                wordcount = line_to_analize.count(lowerletters[k])
+        line_to_analize = line.upper()
+        for k in range(len(Upperletters)):
+                wordcount = line_to_analize.count(Upperletters[k])
                 counters[k]=counters[k]+wordcount
                 globalcount+=wordcount
     Distribution_Matrix.append(words)
