@@ -88,3 +88,6 @@ def kasiski_examination(message):
 def vigenere_final_decription(text=lines_to_analize):
     keys = vigenere_attack()
 
+if __name__=='__main__':
+    vigenere_attack()
+
